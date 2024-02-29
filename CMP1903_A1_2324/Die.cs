@@ -13,17 +13,22 @@ namespace CMP1903_A1_2324
          * and one method that rolls the die, returns and integer and takes no parameters.
          */
 
-        //Property
+        //Property(s)
+        //DieValue property holding the value of the die
         private int DieValue
         {
+            //encapsulated using get an set methods 
             get{ return DieValue; }
             set{ DieValue = value; }
         }
-        //Method            
+        //Method(s)            
+        //RollDie methods "rolls" the die generating a random value between 1,6
         public int RollDie()
         {
+            //generates random int between 1,6
             Random r = new Random();
             DieValue = r.Next(1, 7);
+            //returns integer DieValue
             return DieValue;
         }
     }
