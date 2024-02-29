@@ -14,10 +14,17 @@ namespace CMP1903_A1_2324
          */
 
         //Property
-
-
-        //Method
-
-
+        private int DieValue
+        {
+            get{ return DieValue; }
+            set{ DieValue = value; }
+        }
+        //Method            
+        public int RollDie()
+        {
+            Random r = new Random();
+            DieValue = r.Next(1, 7);
+            return DieValue;
+        }
     }
 }
