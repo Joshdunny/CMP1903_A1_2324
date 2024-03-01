@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,8 +17,18 @@ namespace CMP1903_A1_2324
          */
 
         //Method
+        public void TestingGameClass()
+        {
+            Game testGame = new Game();
+            //Debug.Assert(testGame.Roll3Dice );
+        }
+        public void TestingDieClass()
+        {
+            Die testDie = new Die();
+            //If testDie.RollDie() > 0 comes back as false a message will be displayed
+            Debug.Assert(testDie.RollDie() > 0);
+        }
 
-        //testing commit 2
-
+        
     }
 }
