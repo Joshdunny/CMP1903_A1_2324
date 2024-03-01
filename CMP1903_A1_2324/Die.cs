@@ -15,7 +15,7 @@ namespace CMP1903_A1_2324
 
         //Property(s)
         //DieValue property holding the value of the die
-        private int DieValue
+        public int DieValue
         {
             //encapsulated using get an set methods 
             get{ return DieValue; }
