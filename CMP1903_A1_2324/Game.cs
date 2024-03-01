@@ -16,45 +16,48 @@ namespace CMP1903_A1_2324
          */
 
         //variables used later in the loop for calculating statistics
-        //all encapulated to the class
-        private int numOfRolls
+        //all encapsulated to the class
+        public int numOfRolls;
+        public int numOfSums;
+        public int totalSum;
+        public int averageSum;
+        public int averageRoll;
+        public int highestSum;
+        private int NumOfRolls
         {
             get{ return numOfRolls;}
             set{ numOfRolls = value;}
         }
-        private int numOfSums
+        private int NumOfSums
         {
             get { return numOfSums;}
             set { numOfSums = value;}
         }
-        private int totalSum
+        private int TotalSum
         {
             get { return totalSum;}
             set { totalSum = value;}
         }
-        private int averageSum
+        private int AverageSum
         {
             get { return averageSum;}
             set { averageSum = value;}
         }
-        private int averageRoll
+        private int AverageRoll
         {
             get { return averageRoll;}
             set { averageRoll = value;}
         }
-        private int highestSum
+        private int HighestSum
         {
             get { return highestSum;}
             set { highestSum = value;}
         }
 
         //Methods
-        public Game()
+        public void GameStart()
         {
-            //creates 3 "die" objects 
-            Die die1 = new Die();
-            Die die2 = new Die();
-            Die die3 = new Die();
+           
             //creates a sum variable set as -1 so if sum is not calculated -1 will be displayed 
             int sum = -1;
 
@@ -72,21 +75,9 @@ namespace CMP1903_A1_2324
             //main loop for rolling 3 dice and calculating + reporting sum
             while (roll) 
             {
-                //calls the roll method for each dice object created 
-                die1.RollDie();
-                die2.RollDie();
-                die3.RollDie();
-                numOfRolls += 3;
-
-                //calls each DieValue of each dice object created and calculates the sum
-                sum = die1.DieValue + die2.DieValue + die1.DieValue;
-                numOfSums++;
-                totalSum += sum;
-
-                //reports each roll made
-                Console.WriteLine("First Die rolled: {0}", die1.DieValue);
-                Console.WriteLine("Second Die rolled: {0}", die2.DieValue);
-                Console.WriteLine("Third Die rolled: {0}", die3.DieValue);
+                //calls method Roll3Dice to roll 3 dice and return the sum of them
+                sum = Roll3Dice();       
+                
                 //reports the sum of each roll
                 Console.WriteLine("The sum of the rolled dice >>> {0}", sum);
 
@@ -101,22 +92,52 @@ namespace CMP1903_A1_2324
                     highestSum = sum;
                 }
                 
-
-
-                string rollquery = "";
+                string rollQuery = "";
                 //Loops until a correct input of Y or N is given
-                while (rollquery != "Y" || rollquery != "N")
+                while (rollQuery != "Y" && rollQuery != "N")
                 {
                     //querys the user for continuous rolls
                     Console.WriteLine("Would you like to roll again, [Y] or [N]");
-                    rollquery = Console.ReadLine();
+                    rollQuery = Console.ReadLine();
                 }
                 //checks the users input for N if so roll is changed to false and the loop will end
-                if (rollquery == "N")
+                if (rollQuery == "N")
                 {
                     roll = false;
                 }
             }
+            ReportStats();
+        }
+        public int Roll3Dice()
+        {
+            //creates 3 "die" objects 
+            Die die1 = new Die();
+            Die die2 = new Die();
+            Die die3 = new Die();
+
+            //calls the roll method for each dice object created 
+            //reports each roll made after being generated
+            die1.RollDie();
+            Console.WriteLine("First Die rolled: {0}", die1.DieValue);
+            die2.RollDie();
+            Console.WriteLine("Second Die rolled: {0}", die2.DieValue);
+            die3.RollDie();
+            Console.WriteLine("Third Die rolled: {0}", die3.DieValue);
+
+            //increments numOfRolls counter by 3 everyTime 3 dice are rolled 
+            numOfRolls += 3;
+
+            //calls each DieValue of each dice object created and calculates the sum
+            int sum = die1.DieValue + die2.DieValue + die1.DieValue;
+
+            //increments numOfSums everytime sum is calculated and adding the sum to the total sums made
+            numOfSums++;
+            totalSum += sum;
+
+            return sum;
+        }
+        public void ReportStats()
+        {
             //displays a summary of the rolls made displaying, average roll, sum and highest sum
             Console.WriteLine("<-> Summary of rolls <->");
             Console.WriteLine("Average Roll: {0}", averageRoll);
