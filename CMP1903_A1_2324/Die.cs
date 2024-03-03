@@ -17,12 +17,18 @@ namespace CMP1903_A1_2324
         //Property(s)
         //DieValue property holding the value of the die
         public int dieValue;
-        public int DieValue
+        private int DieValue
         {
             //encapsulated using get an set methods 
             get{ return dieValue; }
             set{ dieValue = value; }
         }
+        //Methods allows for access to the value of the die object without being able to directly alter it
+        public int GetDieValue()
+        {
+            return dieValue;
+        }
+
         //Method(s)            
         //RollDie methods "rolls" the die generating a random value between 1,6
         public int RollDie()
