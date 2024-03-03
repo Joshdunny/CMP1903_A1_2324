@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -42,8 +41,6 @@ namespace CMP1903_A1_2324
             int dievalue = testDie.RollDie();
             Debug.Assert(dievalue > 0, "Roll is less then 1, does not meet expected values");
             Debug.Assert(dievalue < 7, "Roll is greater then 5, does not meet expected values");
-        }
-
-        
+        }       
     }
 }
