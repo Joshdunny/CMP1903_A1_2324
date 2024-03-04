@@ -16,11 +16,11 @@ namespace CMP1903_A1_2324
 
         //Property(s)
         //DieValue property holding the value of the die
-        private int dieValue;
+        private int _dieValue;
         public int DieValue
         {
             //encapsulated to avoid value being changed outside class
-            get { return dieValue; }
+            get { return _dieValue; }
         }
 
         //Method(s)            
@@ -30,14 +30,14 @@ namespace CMP1903_A1_2324
 
             //generates random int between 1,6
             Random r = new Random();
-            dieValue = r.Next(1, 7);
+            _dieValue = r.Next(1, 7);
 
             //Used to get the program to wait between generating a random number
             //Ensuring the same seed is not used for all die rolled
             Thread.Sleep(100);
 
             //returns integer DieValue
-            return DieValue;
+            return _dieValue;
         }
     }
 }
