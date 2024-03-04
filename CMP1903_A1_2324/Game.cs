@@ -118,17 +118,17 @@ namespace CMP1903_A1_2324
             //calls the roll method for each dice object created 
             //reports each roll made after being generated
             die1.RollDie();
-            Console.WriteLine("First Die rolled: {0}", die1.GetDieValue());
+            Console.WriteLine("First Die rolled: {0}", die1.DieValue);
             die2.RollDie();
-            Console.WriteLine("Second Die rolled: {0}", die2.GetDieValue());
+            Console.WriteLine("Second Die rolled: {0}", die2.DieValue);
             die3.RollDie();
-            Console.WriteLine("Third Die rolled: {0}", die3.GetDieValue());
+            Console.WriteLine("Third Die rolled: {0}", die3.DieValue);
 
             //increments numOfRolls counter by 3 everyTime 3 dice are rolled 
             numOfRolls += 3;
 
             //calls each DieValue of each dice object created and calculates the sum
-            int sum = die1.GetDieValue() + die2.GetDieValue() + die3.GetDieValue();
+            int sum = die1.DieValue + die2.DieValue + die3.DieValue;
 
             //increments numOfSums everytime sum is calculated and adding the sum to the total sums made
             numOfSums++;
