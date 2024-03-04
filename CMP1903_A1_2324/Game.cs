@@ -17,41 +17,35 @@ namespace CMP1903_A1_2324
 
         //variables used later in the loop for calculating statistics
         //all encapsulated to the class
-        public int numOfRolls;
-        public int numOfSums;
-        public int totalSum;
-        public int averageSum;
-        public int averageRoll;
-        public int highestSum;
-        private int NumOfRolls
+        private int _numOfRolls;
+        private int _numOfSums;
+        private int _totalSum;
+        private int _averageSum;
+        private int _averageRoll;
+        private int _highestSum;
+        public int NumOfRolls
         {
-            get { return numOfRolls; }
-            set { numOfRolls = value; }
+            get { return _numOfRolls; }
         }
-        private int NumOfSums
+        public int NumOfSums
         {
-            get { return numOfSums; }
-            set { numOfSums = value; }
+            get { return _numOfSums; }
         }
-        private int TotalSum
+        public int TotalSum
         {
-            get { return totalSum; }
-            set { totalSum = value; }
+            get { return _totalSum; }
         }
-        private int AverageSum
+        public int AverageSum
         {
-            get { return averageSum; }
-            set { averageSum = value; }
+            get { return _averageSum; }
         }
-        private int AverageRoll
+        public int AverageRoll
         {
-            get { return averageRoll; }
-            set { averageRoll = value; }
+            get { return _averageRoll; }
         }
-        private int HighestSum
+        public int HighestSum
         {
-            get { return highestSum; }
-            set { highestSum = value; }
+            get { return _highestSum; }
         }
 
         //Methods
@@ -65,12 +59,12 @@ namespace CMP1903_A1_2324
             bool roll = true;
 
             //variables set for later in the loop for calculating statistics
-            numOfRolls = 0;
-            numOfSums = 0;
-            totalSum = 0;
-            averageSum = 0;
-            averageRoll = 0;
-            highestSum = 0;
+            _numOfRolls = 0;
+            _numOfSums = 0;
+            _totalSum = 0;
+            _averageSum = 0;
+            _averageRoll = 0;
+            _highestSum = 0;
 
             //main loop for rolling 3 dice and calculating + reporting sum
             while (roll)
@@ -82,15 +76,9 @@ namespace CMP1903_A1_2324
                 Console.WriteLine("The sum of the rolled dice >>> {0}", sum);
 
                 //Statistics to be calculated (Mean Roll, Mean sum, Highest sum)
-                //calculates average sum
-                averageSum = totalSum / numOfSums;
-                //calculates average roll
-                averageRoll = totalSum / numOfRolls;
-                //changes highest sum if the newest sum is larger then the current highest sum
-                if (highestSum < sum)
-                {
-                    highestSum = sum;
-                }
+                _averageSum = CalculateAverageSum();
+                _averageRoll = CalculateAverageRoll();
+                _highestSum = CalculateHighestSum(sum);
 
                 string rollQuery = "";
                 //Loops until a correct input of Y or N is given
@@ -107,6 +95,29 @@ namespace CMP1903_A1_2324
                 }
             }
             ReportStats();
+        }
+        private int CalculateHighestSum(int sum)
+        {
+            //changes highest sum if the newest sum is larger then the current highest sum
+            if (_highestSum < sum)
+            {
+                return sum;
+            }
+            else
+            {
+                return _highestSum;
+            }
+        }
+
+        private int CalculateAverageRoll()
+        {
+            //calculates average roll
+            return (_totalSum / _numOfSums);
+        }
+        private int CalculateAverageSum()
+        {
+            //calculates average sum
+            return (_totalSum / _numOfSums);
         }
         public int Roll3Dice()
         {
@@ -125,14 +136,14 @@ namespace CMP1903_A1_2324
             Console.WriteLine("Third Die rolled: {0}", die3.DieValue);
 
             //increments numOfRolls counter by 3 everyTime 3 dice are rolled 
-            numOfRolls += 3;
+            _numOfRolls += 3;
 
             //calls each DieValue of each dice object created and calculates the sum
             int sum = die1.DieValue + die2.DieValue + die3.DieValue;
 
             //increments numOfSums everytime sum is calculated and adding the sum to the total sums made
-            numOfSums++;
-            totalSum += sum;
+            _numOfSums++;
+            _totalSum += sum;
 
             return sum;
         }
@@ -140,9 +151,9 @@ namespace CMP1903_A1_2324
         {
             //displays a summary of the rolls made displaying, average roll, sum and highest sum
             Console.WriteLine("<-> Summary of rolls <->");
-            Console.WriteLine("Average Roll: {0}", averageRoll);
-            Console.WriteLine("Average Sum: {0}", averageSum);
-            Console.WriteLine("Highest Sum: {0}", highestSum);
+            Console.WriteLine("Average Roll: {0}", _averageRoll);
+            Console.WriteLine("Average Sum: {0}", _averageSum);
+            Console.WriteLine("Highest Sum: {0}", _highestSum);
         }
     }
 }
