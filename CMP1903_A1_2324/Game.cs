@@ -26,26 +26,32 @@ namespace CMP1903_A1_2324
         public int NumOfRolls
         {
             get { return _numOfRolls; }
+            private set { _numOfRolls = value; }
         }
         public int NumOfSums
         {
             get { return _numOfSums; }
+            private set { _numOfSums = value; }
         }
         public int TotalSum
         {
             get { return _totalSum; }
+            private set { _totalSum = value; }
         }
         public int AverageSum
         {
             get { return _averageSum; }
+            private set { _averageSum = value; }
         }
         public int AverageRoll
         {
             get { return _averageRoll; }
+            private set { _averageRoll = value; }
         }
         public int HighestSum
         {
             get { return _highestSum; }
+            private set { _highestSum = value; }
         }
 
         //Methods

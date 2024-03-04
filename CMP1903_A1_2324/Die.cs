@@ -21,6 +21,7 @@ namespace CMP1903_A1_2324
         {
             //encapsulated to avoid value being changed outside class
             get { return _dieValue; }
+            private set { _dieValue = value; }
         }
 
         //Method(s)            
