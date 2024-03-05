@@ -24,7 +24,7 @@ namespace CMP1903_A1_2324 {
 
     //Method(s)            
     //RollDie methods "rolls" the die generating a random value between 1,6
-    public int RollDie() {
+    public int Roll() {
       //generates random int between 1,6
       Random r = new Random();
       _dieValue = r.Next(1, 7);

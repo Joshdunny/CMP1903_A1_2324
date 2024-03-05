@@ -36,7 +36,7 @@ namespace CMP1903_A1_2324 {
       //If testDie.RollDie() > 0 or > 7 comes back as false a message will be displayed
       //testing the expected values of the dice to be between 1 and 6
       Console.WriteLine("Testing dice rolls to be between 1 and 6");
-      int dievalue = testDie.RollDie();
+      int dievalue = testDie.Roll();
       Debug.Assert(dievalue > 0 && dievalue < 7, "Does not meet expected values");
     }
   }
