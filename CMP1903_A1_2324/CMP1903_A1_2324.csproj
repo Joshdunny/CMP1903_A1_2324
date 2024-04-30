@@ -45,9 +45,13 @@
   <ItemGroup>
     <Compile Include="Die.cs" />
     <Compile Include="Game.cs" />
+    <Compile Include="IPlayable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SevensOut.cs" />
+    <Compile Include="Statistics.cs" />
     <Compile Include="Testing.cs" />
+    <Compile Include="ThreeOrMore.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
