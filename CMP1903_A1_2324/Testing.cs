@@ -80,7 +80,7 @@ namespace CMP1903_A1_2324
                     }
             }
         }
-        protected void TestSevensOut()
+        private void TestSevensOut()
         {
             SevensOut testInstanceOfSevensOut = new SevensOut();
             int testValue = -1;
@@ -104,7 +104,7 @@ namespace CMP1903_A1_2324
                 LogTestResults("Sevens Out", "Game ending when dice total is 7", "FAILED");
             }
         }
-        protected void TestThreeOrMore()
+        private void TestThreeOrMore()
         {
             ThreeOrMore testInstanceOfThreeOrMore = new ThreeOrMore();
             int testValue = -1;
@@ -134,7 +134,7 @@ namespace CMP1903_A1_2324
             string testLog = "\n  Testing Report for: " + gameName +
                              "\n>-------------------------<" +
                              "\n  Test Conducted : " + testConducted +
-                             "\n  Test Result : " + testResult;
+                             "\n  Test Result : " + testResult + "\n";
             File.AppendAllText(path, testLog);
 
         }

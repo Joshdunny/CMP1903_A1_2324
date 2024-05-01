@@ -41,13 +41,13 @@ namespace CMP1903_A1_2324
             {
                 choice = -1;
                 MainMenu();
-                while (choice < 1 || choice > 5)
+                while (choice < 1 || choice > 4)
                 {
                     try
                     {
                         Console.WriteLine("Enter your choice here:");
                         choice = int.Parse(Console.ReadLine());
-                        if (choice < 1 || choice > 5)
+                        if (choice < 1 || choice > 4)
                         {
                             Console.WriteLine("Enter a choice that is displayed");
                         }
